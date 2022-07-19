@@ -1,0 +1,13 @@
+@import 'variable.scss';
+
+.header {
+    height: 100vh;
+    background-image:url('/assets/images/accueil.jpg');
+    background-attachment: fixed;
+}
+
+.title-header{
+    font-size: 5rem;
+    color:$light;
+    font-weight: 700;
+}
