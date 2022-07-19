@@ -1,9 +1,14 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Magic Wilder{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block title %}Accueil
+{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
+	<div class="container-fluid d-flex justify-content-center align-items-center header">
+		<h1 class="title-header border border-dark border-3 p-2 rounded">Bienvenue</h1>
+	</div>
 {% endblock %}
