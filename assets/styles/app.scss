@@ -1,4 +1,15 @@
+@import "variable.scss";
+@import "navbar.scss";
 @import "~bootstrap/scss/bootstrap";
+
 body {
-    background-color: lightgray;
+    background-color: $light;
+}
+
+.logo-nav{
+    width: 40%;
+}
+
+.logo-resp{
+    width: 40vw;
 }
