@@ -15,6 +15,9 @@
 	<body class="d-flex flex-column bg-light">
 		<header>
 			{% block navbar %}{% endblock %}
+			{% block flashes %}
+				{% include 'component/_flashes.html.twig'%}
+			{% endblock %}
 		</header>
 		<main>
 			<div class="flex-grow-1"> {% block body %}{% endblock %}
