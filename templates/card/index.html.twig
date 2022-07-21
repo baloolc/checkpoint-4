@@ -22,7 +22,7 @@
 						<p class="d-flex justify-content-center fs-4 mt-3 mb-0">{{ user.firstname }}</p>
 						<p class="d-flex justify-content-center fs-5">{{ user.lastname }}</p>
 					</div>
-					<a href="{{ path('user_edit') }}" class="d-flex justify-content-center fs-5 fw-bold text-decoration-none ms-2 mb-md-5 edit">Modifier mon profil<i class="bi bi-pencil-square ms-2"></i>
+					<a href="{{ path('user_edit', {'id': user.id}) }}" class="d-flex justify-content-center fs-5 fw-bold text-decoration-none ms-2 mb-md-5 edit">Modifier mon profil<i class="bi bi-pencil-square ms-2"></i>
 					</a>
 				</nav>
 			</div>
