@@ -1,5 +1,5 @@
 .navbar-nav .nav-link {
-    color: $secondary;
+    color: $light;
     &::after {
         content   : "";
         width     : 0%;
@@ -9,19 +9,19 @@
         bottom    : 0%;
     }
     &:hover {
-        color: $navbar-dark-color;
+        color: $secondary;
         &::after {
             width           : 100%;
             height          : 3px;
-            background-color: $navbar-dark-color;
+            background-color: $secondary;
         }
     }
     &.active {
-        color: $navbar-dark-color;
+        color: $secondary;
         &::after {
             width           : 100%;
             height          : 3px;
-            background-color: $navbar-dark-color;
+            background-color: $secondary;
         }
     }
 }

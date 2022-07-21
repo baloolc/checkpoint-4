@@ -2,6 +2,18 @@
 @import "navbar.scss";
 @import "~bootstrap/scss/bootstrap";
 
+body{
+    background-color: #C5925B;
+}
+
+h1, h2{
+    font-family: $title-font;
+}
+
+.font{
+font-family: $text-font;
+}
+
 .logo-nav{
     width: 40%;
 }

@@ -29,7 +29,21 @@ class CardController extends AbstractController
         ]);
     }
 
+    #[Route('voir/{id}', name: 'card_show', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
+    public function show(Card $card): Response
+    {
+        /** @var User  */
+        $user = $this->getUser();
+
+        return $this->render('card/show.html.twig', [
+            'card' => $card,
+            'user' => $user,
+        ]);
+    }
+
     #[Route('/supprimer/{id}', name: 'card_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Card $card, CardRepository $cardRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $card->getId(), $request->request->get('_token'))) {
