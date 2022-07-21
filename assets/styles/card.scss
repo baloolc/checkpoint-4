@@ -17,6 +17,10 @@
     color: $secondary;
 }
 
+.back{
+    background-color: $navbar-dark-color;
+}
+
 .jace{
     background-color: #C5925B;
 }
@@ -24,4 +28,8 @@
 .img{
     width: 29rem;
     height: 40rem;
+}
+
+.height{
+    height: 100vh;
 }
