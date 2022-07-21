@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use App\Form\CardType;
 use App\Repository\CardRepository;
+use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -37,7 +38,6 @@ class CardController extends AbstractController
         $card = new Card();
         /** @var User  */
         $user = $this->getUser();
-        $card->setUser($user);
         $form = $this->createForm(CardType::class, $card);
         $form->handleRequest($request);
 
@@ -69,7 +69,6 @@ class CardController extends AbstractController
     }
 
     #[Route('/supprimer/{id}', name: 'card_delete', methods: ['POST'])]
-    #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Card $card, CardRepository $cardRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $card->getId(), $request->request->get('_token'))) {

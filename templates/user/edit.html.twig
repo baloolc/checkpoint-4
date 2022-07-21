@@ -1,18 +1,16 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}
-	{{ parent() }}
-	|| Ajouter une carte
-{% endblock %}
-
 {% block stylesheets %}
 	{{ encore_entry_link_tags('card') }}
+{% endblock %}
+{% block title %}
+{{ parent() }}|| Modifier mon profil
 {% endblock %}
 
 {% block body %}
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 p-0 bg-primary height">
+			<div class="col-md-2 p-0 bg-primary">
 				<nav id="sidebar" class="d-flex flex-column sticky-md-top ">
 					<div class="d-flex justify-content-center w-100 mt-4">
 						<div class="d-flex justify-content-center avatar border border-dark border-2 rounded overflow-hidden p-2">
@@ -24,7 +22,7 @@
 						<p class="d-flex justify-content-center fs-4 mt-3 mb-0">{{ user.firstname }}</p>
 						<p class="d-flex justify-content-center fs-5">{{ user.lastname }}</p>
 					</div>
-					<a href="{{ path('user_edit', {'id': user.id}) }}" class="d-flex justify-content-center fs-5 fw-bold text-decoration-none ms-2 mb-2 edit">Modifier mon profil<i class="bi bi-pencil-square ms-2"></i>
+					<a href="{{ path('user_edit', {'id': user.id}) }}" class="d-flex justify-content-center fs-5 fw-bold text-decoration-none ms-2 mb-3 edit">Modifier mon profil<i class="bi bi-pencil-square ms-2"></i>
 					</a>
                     <div class="d-md-flex justify-content-md-center d-none mb-md-5">
 						<a href="{{ path('card') }}" class="btn btn-outline-dark text-light fs-5 fw-bold"><i class="bi bi-box-arrow-left me-2"></i>Retour</a>
@@ -32,10 +30,10 @@
 				</nav>
 			</div>
 			<div data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" data-bs-smooth-scroll="true" class="col-md-10" tabindex="0">
-				<h1 class="my-5 d-flex justify-content-center text-light">Ajouter une carte dans la collection de {{ user.pseudo }}</h1>
-				<section class="mt-4 fs-5">
-					{{ include('card/_form.html.twig') }}
-				</section>
+			<div class="d-flex justify-content-center">
+				<h1 class="d-flex justify-content-center mt-md-5 mb-3 text-light" id="profil">Modifier votre profil</h1>
+				</div>
+				{{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
 			</div>
 		</div>
 	</div>

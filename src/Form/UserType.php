@@ -3,11 +3,12 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\TextType;
+
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserType extends AbstractType
 {
@@ -20,13 +21,11 @@ class UserType extends AbstractType
                     'placeholder' => 'Mon pseudo',
                 ]
             ])
-            ->add('avatarFile', VichFileType::class, [
+            ->add('avatarFile', VichImageType::class, [
                 'required' => false,
-                'allow_delete' => true,
-                'delete_label' => '...',
-                'download_uri' => '...',
-                'download_label' => '...',
-                'asset_helper' => true,])
+                'download_uri' => false,
+                'allow_delete' => false,
+                ])
             
         ;
     }
