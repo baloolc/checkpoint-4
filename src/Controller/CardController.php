@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
+use App\Form\CardType;
 use App\Repository\CardRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,31 @@ class CardController extends AbstractController
             'data' => $callApiService->getCardData(),
             'cards' => $cards,
             'user' => $user,
+        ]);
+    }
+
+    #[Route('/ajouter-card', name: 'card_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
+    public function new(Request $request, CallApiService $callApiService, CardRepository $cardRepository): Response
+    {
+        $card = new Card();
+        /** @var User  */
+        $user = $this->getUser();
+        $card->setUser($user);
+        $form = $this->createForm(CardType::class, $card);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $cardRepository->add($card, true);
+            $this->addFlash('success', 'La séance à bien été ajoutée !');
+
+            return $this->redirectToRoute('card', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->renderForm('card/new.html.twig', [
+            'card' => $card,
+            'form' => $form,
+            'user' => $user,
+            'data' => $callApiService->getCardData(),
         ]);
     }
 

@@ -33,9 +33,7 @@ class CardFixtures extends Fixture implements DependentFixtureInterface
             if(isset($apiCard['cards'][$i]['toughness'])){
                 $card->setToughness($apiCard['cards'][$i]['toughness']);
             }
-            if(isset($apiCard['cards'][$i]['multiverseid'])){
-                $card->setApiId($apiCard['cards'][$i]['multiverseid']);
-            }
+            $card->setApiId($i);
             if(isset($apiCard['cards'][$i]['text'])){
                 $card->setDescription($apiCard['cards'][$i]['text']);
             }
