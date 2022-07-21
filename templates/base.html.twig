@@ -15,11 +15,11 @@
 	<body class="bg-light">
 		<header>
 			{% block navbar %}{% endblock %}
+		</header>
+		<main>
 			{% block flashes %}
 				{% include 'component/_flashes.html.twig'%}
 			{% endblock %}
-		</header>
-		<main>
 			{% block body %}{% endblock %}
 		</main>
 	</body>

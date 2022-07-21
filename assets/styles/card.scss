@@ -1,0 +1,18 @@
+@import 'variable.scss';
+
+.avatar{
+    width: 10rem;
+    height: 10rem;
+}
+
+.pseudo{
+    color: $navbar-dark-color;
+}
+
+.edit{
+    color: $secondary;
+}
+
+.edit:hover{
+    color: $navbar-dark-color;
+}

@@ -37,16 +37,18 @@ class UserFixtures extends Fixture
         $admin->setPassword($hashedPassword);
         $manager->persist($admin);
         $this->addReference($admin->getEmail(), $admin);
+
         $user = new User();
         $user->setEmail('user@magic.com');
         $user->setRole(['ROLE_USER']);
-        $user->setFirstname('Js');
-        $user->setLastname('Dan');
+        $user->setFirstname('Jean-Sebastien');
+        $user->setLastname('De Mon-Miraille');
         $user->setPseudo('Kiki');
         $avatar = 'avatar' . 'png';
         copy('src/DataFixtures/avatar.png', 'public/uploads/user/' . $avatar);
         $user->setAvatar($avatar);
         $this->addReference($user->getEmail(), $user);
+        $this->addReference('user_', $user);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $user,
             'azerty'

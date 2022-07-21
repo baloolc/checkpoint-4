@@ -1,7 +1,59 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Ma collection{% endblock %}
+{% block title %}Ma collection
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('card') }}
+{% endblock %}
 
 {% block body %}
-<h1 class="d-flex justify-content-center mt-5">Collection de {{ user.pseudo }}</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 p-0 bg-primary">
+				<nav id="sidebar" class="d-flex flex-column sticky-md-top ">
+					<div class="d-flex justify-content-center w-100 mt-4">
+						<div class="d-flex justify-content-center avatar border border-dark border-2 rounded overflow-hidden p-2">
+							<img src="{{vich_uploader_asset(user, 'avatarFile') }}" alt="Mon avatar" class="">
+						</div>
+					</div>
+					<h2 class="d-flex justify-content-center mt-2 pseudo">{{ user.pseudo }}</h2>
+					<div class="d-none d-md-block">
+						<p class="d-flex justify-content-center fs-4 mt-3 mb-0">{{ user.firstname }}</p>
+						<p class="d-flex justify-content-center fs-5">{{ user.lastname }}</p>
+					</div>
+					<a href="{{ path('user_edit') }}" class="d-flex justify-content-center fs-5 fw-bold text-decoration-none ms-2 mb-md-5 edit">Modifier mon profil<i class="bi bi-pencil-square ms-2"></i>
+					</a>
+				</nav>
+			</div>
+			<div data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" data-bs-smooth-scroll="true" class="col-md-10" tabindex="0">
+				<h1 class="d-flex justify-content-center my-5">Collection de
+					{{ user.pseudo }}</h1>
+				<div class="d-flex justify-content-center">
+					<div class="shadow bg-light rounded mb-5 col-md-6 col-10 p-2">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th class="">Nom de la carte</th>
+									<th class="">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for card in cards %}
+									<tr class="border-secondary">
+										<td class="fs-5">{{ card.name }}</td>
+										<td>
+                                        <div class="d-flex">
+											<a href="" class="me-3 btn btn-success fs-5">Voir</a>{% include "card/_delete_form.html.twig" %}
+                                            </div>
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
