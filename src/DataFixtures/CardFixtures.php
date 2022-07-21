@@ -5,9 +5,10 @@ namespace App\DataFixtures;
 use App\Entity\Card;
 use App\Service\CallApiService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class CardFixtures extends Fixture
+class CardFixtures extends Fixture implements DependentFixtureInterface
 {
     private CallApiService $callApiService;
 
@@ -40,8 +41,16 @@ class CardFixtures extends Fixture
             }
             $card->setRarity($apiCard['cards'][$i]['rarity']);
             $card->setManaCost($apiCard['cards'][$i]['manaCost']);
+            $card->setUser($this->getReference('user_'));
             $manager->persist($card);
         }
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            UserFixtures::class,
+        ];
     }
 }

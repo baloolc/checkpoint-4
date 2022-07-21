@@ -83,8 +83,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Card::class)]
-    private Collection $cards;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Card::class,)]
+    private ?Collection $cards;
 
     public function __construct()
     {
