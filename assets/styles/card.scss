@@ -6,13 +6,22 @@
 }
 
 .pseudo{
-    color: $navbar-dark-color;
+    color: $light;
 }
 
 .edit{
-    color: $secondary;
+    color: $light;
 }
 
 .edit:hover{
-    color: $navbar-dark-color;
+    color: $secondary;
+}
+
+.jace{
+    background-color: #C5925B;
+}
+
+.img{
+    width: 29rem;
+    height: 40rem;
 }

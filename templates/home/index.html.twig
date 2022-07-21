@@ -9,6 +9,6 @@
 
 {% block body %}
 	<div class="container-fluid d-flex justify-content-center align-items-center header">
-		<h1 class="title-header border border-dark border-3 p-2 rounded">{% if is_granted('ROLE_USER') %}Bienvenue{{ user.pseudo }}{% else %}Bienvenue{% endif %}</h1>
+		<h1 class="title-header border border-dark border-3 p-2 rounded">{% if is_granted('ROLE_USER') %}Bienvenue {{ user.pseudo }}{% else %}Bienvenue{% endif %}</h1>
 	</div>
 {% endblock %}

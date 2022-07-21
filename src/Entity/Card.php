@@ -57,6 +57,13 @@ class Card
     #[ORM\Column(length: 255)]
     private ?string $manaCost = null;
 
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        max: 255
+    )]
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -166,6 +173,18 @@ class Card
     public function setManaCost(string $manaCost): self
     {
         $this->manaCost = $manaCost;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

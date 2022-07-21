@@ -12,9 +12,9 @@
 			</div>
 		</div>
 	{% endif %}
-	<h1 class="d-flex justify-content-center mt-5 mb-4">Connexion</h1>
+	<h1 class="d-flex justify-content-center mt-5 mb-4 text-light">Connexion</h1>
 	<form action="" method="post">
-		<div class="container shadow bg-light rounded d-flex flex-column align-items-center col-lg-5 col-10 mb-5">
+		<div class="container shadow bg-secondary rounded d-flex flex-column align-items-center col-lg-5 col-10 mb-5">
 			<div class="d-flex flex-column justify-content-center align-items-center col-lg-10 mt-5">
 				<label class="w-100 fs-5 mb-2" for="username">Email</label>
 				<input class=" p-2 fs-5 form-control border-dark" type="text" id="username" name="_username" value="{{ last_username }}" required placeholder="votre.email@magic.com"/>
@@ -25,7 +25,7 @@
 			</div>
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<div class="d-flex justify-content-center my-5">
-				<button class="btn btn-outline-secondary text-dark fs-5 border-2 fw-bold" type="submit">
+				<button class="btn btn-outline-primary text-dark fs-5 border-2 fw-bold" type="submit">
 					<i class="bi bi-box-arrow-in-right me-2"></i>Connexion</button>
 			</div>
 		</div>

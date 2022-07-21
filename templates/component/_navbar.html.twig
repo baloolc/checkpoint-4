@@ -11,18 +11,16 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNavAltMarkup">
 			<div class="navbar-nav gap-2 my-3 justify-content-center align-items-center">
-				<a class="nav-item nav-link text-secondary px-md-4 fs-4" href="{{ path('home') }}">Accueil</a>
-				<a class="nav-item nav-link text-secondary px-md-4 fs-4" href="{{ path('contact') }}">Contact</a>
-				<a class="nav-item nav-link text-secondary px-md-4 fs-4" href="#">Le monde</a>
-				<a class="nav-item fs-4 text-secondary px-md-4 nav-link" href="#">Mes packs</a>
-				<a class="nav-item fs-4 text-secondary px-md-4 nav-link" href="{{ path('card') }}">Ma collection</a>
+				<a class="nav-item nav-link text-light px-md-4 fs-3 font" href="{{ path('home') }}">Accueil</a>
+				<a class="nav-item nav-link text-light px-md-4 fs-3 font" href="{{ path('contact') }}">Contact</a>
+				<a class="nav-item fs-3 text-light px-md-4 nav-link font" href="{{ path('card') }}">Ma collection</a>
 				{% if app.user %}
-					<a class="nav-item nav-link px-md-4 fs-4" href="{{ path('logout') }}">
+					<a class="nav-item nav-link text-light px-md-4 fs-3 font" href="{{ path('logout') }}">
 						Déconnexion</a>
 				{% else %}
-				<a class="nav-item nav-link text-secondary px-md-4 fs-4" href="{{ path('login') }}">Connexion</a>
+				<a class="nav-item nav-link text-light px-md-4 fs-3 font" href="{{ path('login') }}">Connexion</a>
 				{% endif %}
-				<a class="nav-item nav-link text-secondary px-md-4 fs-4" href="{{ path('register')}}">Inscription</a>
+				<a class="nav-item nav-link text-light px-md-4 fs-3 font" href="{{ path('register')}}">Inscription</a>
 			</div>
 		</div>
 	</div>

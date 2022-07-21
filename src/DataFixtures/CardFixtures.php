@@ -41,6 +41,7 @@ class CardFixtures extends Fixture implements DependentFixtureInterface
             }
             $card->setRarity($apiCard['cards'][$i]['rarity']);
             $card->setManaCost($apiCard['cards'][$i]['manaCost']);
+            $card->setType($apiCard['cards'][$i]['type']);
             $card->setUser($this->getReference('user_'));
             $manager->persist($card);
         }

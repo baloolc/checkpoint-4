@@ -27,15 +27,15 @@
 				</nav>
 			</div>
 			<div data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" data-bs-smooth-scroll="true" class="col-md-10" tabindex="0">
-				<h1 class="d-flex justify-content-center my-5">Collection de
+				<h1 class="d-flex justify-content-center my-5 text-light">Collection de
 					{{ user.pseudo }}</h1>
 				<div class="d-flex justify-content-center">
-					<div class="shadow bg-light rounded mb-5 col-md-6 col-10 p-2">
+					<div class="shadow bg-secondary rounded mb-5 col-md-6 col-10 p-2">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th class="">Nom de la carte</th>
-									<th class="">Action</th>
+									<th class="fs-3 font">Nom de la carte</th>
+									<th class="fs-3 font">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,8 +43,8 @@
 									<tr class="border-secondary">
 										<td class="fs-5">{{ card.name }}</td>
 										<td>
-                                        <div class="d-flex">
-											<a href="" class="me-3 btn btn-success fs-5">Voir</a>{% include "card/_delete_form.html.twig" %}
+                                        <div class="d-flex justify-content-around">
+											<a href="{{ path('card_show', {'id': card.id}) }}" class="btn btn-success fs-5">Voir</a>{% include "card/_delete_form.html.twig" %}
                                             </div>
 										</td>
 									</tr>
